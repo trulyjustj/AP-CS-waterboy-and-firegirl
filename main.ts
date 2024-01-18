@@ -3,8 +3,7 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         jump = 0
     }
     if (sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Left)) {
-        let mySprite: Sprite = null
-        mySprite.vy = 0
+        sprite.vy = 0
     }
 })
 let jump = 0
