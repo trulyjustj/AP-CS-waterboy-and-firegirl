@@ -17,4 +17,5 @@ let boy: Sprite = null
 scene.setBackgroundColor(13)
 boy = sprites.create(assets.image`myImage1`, SpriteKind.Player)
 controller.moveSprite(boy, 100, 0)
+boy.ay = 300
 jump = 0
