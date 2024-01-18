@@ -24,6 +24,8 @@ mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`myImage0`, SpriteKind.Player))
 controller.player1.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 100, 0)
 controller.player2.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 100, 0)
+mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setScale(0.5, ScaleAnchor.Middle)
+mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).setScale(0.5, ScaleAnchor.Middle)
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).ay = 300
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).ay = 300
 jump = 0
