@@ -6,10 +6,15 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         sprite.vy = 0
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (jump < 2) {
         jump += 1
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = -150
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (jump < 2) {
+        jump += 1
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = -150
     }
 })
