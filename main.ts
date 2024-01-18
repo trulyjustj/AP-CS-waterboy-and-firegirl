@@ -6,24 +6,15 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         sprite.vy = 0
     }
 })
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (jump < 2) {
+        jump += 1
+        boy.vy = -150
+    }
+})
 let jump = 0
+let boy: Sprite = null
 scene.setBackgroundColor(13)
-let boy = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-controller.moveSprite(boy)
+boy = sprites.create(assets.image`myImage1`, SpriteKind.Player)
+controller.moveSprite(boy, 100, 0)
+jump = 0
