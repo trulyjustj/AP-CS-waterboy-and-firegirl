@@ -11,12 +11,14 @@ controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
         jump += 1
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).vy = -150
     }
+    pause(1000)
 })
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     if (jump < 2) {
         jump += 1
         mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).vy = -150
     }
+    pause(1000)
 })
 let jump = 0
 scene.setBackgroundColor(13)
