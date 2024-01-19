@@ -4,7 +4,9 @@
     "dependencies": {
         "device": "*",
         "multiplayer": "*",
-        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.1.0"
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.1.0",
+        "animation": "*",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",
