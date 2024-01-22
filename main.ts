@@ -191,7 +191,7 @@ mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets
 tiles.placeOnTile(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), tiles.getTileLocation(2, 19))
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets.image`myImage0`, SpriteKind.girl))
 tiles.placeOnTile(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), tiles.getTileLocation(2, 22))
-scene.cameraFollowSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)))
+scene.cameraFollowSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
 controller.player1.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 100, 0)
 controller.player2.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 100, 0)
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setScale(0.5, ScaleAnchor.Middle)
