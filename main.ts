@@ -194,11 +194,13 @@ tiles.placeOnTile(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), ti
 scene.cameraFollowSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)))
 controller.player1.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)), 100, 0)
 controller.player2.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), 100, 0)
-mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).setScale(0.5, ScaleAnchor.Middle)
-mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).setScale(0.5, ScaleAnchor.Middle)
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).ay = 300
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).ay = 300
 jump = 0
+namespace userconfig {
+    export const ARCADE_SCREEN_WIDTH = 1024
+    export const ARCADE_SCREEN_HEIGHT = 1024
+}
 forever(function () {
     characterAnimations.loopFrames(
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
