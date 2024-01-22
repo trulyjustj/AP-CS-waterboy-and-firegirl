@@ -186,7 +186,7 @@ controller.player1.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pr
 })
 let jump = 0
 scene.setBackgroundColor(13)
-tiles.setCurrentTilemap(tilemap`level2`)
+tiles.setCurrentTilemap(tilemap`level0`)
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`myImage1`, SpriteKind.boy))
 tiles.placeOnTile(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), tiles.getTileLocation(2, 19))
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets.image`myImage0`, SpriteKind.girl))
