@@ -17,7 +17,7 @@ scene.onOverlapTile(SpriteKind.girl, assets.tile`myTile2`, function (sprite, loc
     tiles.setWallAt(tiles.getTileLocation(6, 26), false)
 })
 scene.onOverlapTile(SpriteKind.boy, assets.tile`myTile0`, function (sprite, location) {
-    boyready += -1
+    boyready = 1
     plate(true, sprite)
 })
 scene.onOverlapTile(SpriteKind.girl, assets.tile`myTile1`, function (sprite, location) {
@@ -42,9 +42,8 @@ controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     pause(1000)
 })
 scene.onOverlapTile(SpriteKind.girl, assets.tile`myTile`, function (sprite, location) {
-    girlready += 1
+    girlready = 1
     plate(true, sprite)
-    pause(100)
 })
 function plate (bool: boolean, sprite: Sprite) {
     if (boyready == girlready) {
@@ -653,8 +652,8 @@ controller.player1.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pr
     characterAnimations.rule(Predicate.MovingLeft)
     )
 })
-let boyready = 0
 let girlready = 0
+let boyready = 0
 let jump = 0
 let levels: tiles.TileMapData[] = []
 scene.setBackgroundColor(13)
@@ -670,8 +669,6 @@ controller.player2.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumb
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).ay = 300
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).ay = 300
 jump = 0
-girlready = 1
-boyready = 100
 namespace userconfig {
     export const ARCADE_SCREEN_WIDTH = 676
     export const ARCADE_SCREEN_HEIGHT = 676
