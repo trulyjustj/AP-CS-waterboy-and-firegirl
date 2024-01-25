@@ -689,6 +689,8 @@ namespace userconfig {
     export const ARCADE_SCREEN_WIDTH = 676
     export const ARCADE_SCREEN_HEIGHT = 676
 }
+game.splash("Use A.W.D To Move Firegirl")
+game.splash("Use J.I.L To Move Waterboy")
 forever(function () {
     characterAnimations.loopFrames(
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
