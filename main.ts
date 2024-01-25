@@ -9,6 +9,12 @@ controller.player1.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
     }
     pause(1000)
 })
+function plate (bool: boolean, sprite: Sprite) {
+    if (boyready == girlready) {
+        tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`transparency16`)
+    }
+}
 scene.onOverlapTile(SpriteKind.girl, sprites.dungeon.hazardWater, function (sprite, location) {
     game.gameOver(false)
 })
@@ -29,6 +35,10 @@ scene.onHitWall(SpriteKind.girl, function (sprite, location) {
 })
 scene.onOverlapTile(SpriteKind.boy, sprites.dungeon.hazardLava0, function (sprite, location) {
     game.gameOver(false)
+})
+scene.onOverlapTile(SpriteKind.boy, assets.tile`transparency16`, function (sprite, location) {
+    plate(true, sprite)
+    boyready += -1
 })
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     characterAnimations.loopFrames(
@@ -558,6 +568,10 @@ controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.P
     characterAnimations.rule(Predicate.MovingRight)
     )
 })
+scene.onOverlapTile(SpriteKind.girl, assets.tile`transparency16`, function (sprite, location) {
+    plate(true, sprite)
+    girlready += 1
+})
 scene.onHitWall(SpriteKind.boy, function (sprite, location) {
     if (!(sprite.isHittingTile(CollisionDirection.Top))) {
         jump = 0
@@ -574,6 +588,8 @@ controller.player1.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pr
     characterAnimations.rule(Predicate.MovingLeft)
     )
 })
+let boyready = 0
+let girlready = 0
 let jump = 0
 scene.setBackgroundColor(13)
 tiles.setCurrentTilemap(tilemap`level0`)
@@ -587,6 +603,8 @@ controller.player2.moveSprite(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumb
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)).ay = 300
 mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)).ay = 300
 jump = 0
+girlready = 1
+boyready = 3
 namespace userconfig {
     export const ARCADE_SCREEN_WIDTH = 676
     export const ARCADE_SCREEN_HEIGHT = 676
