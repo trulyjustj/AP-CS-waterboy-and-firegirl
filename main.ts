@@ -76,7 +76,7 @@ scene.onOverlapTile(SpriteKind.boy, sprites.dungeon.hazardLava0, function (sprit
     game.gameOver(false)
 })
 scene.onOverlapTile(SpriteKind.girl, sprites.dungeon.collectibleInsignia, function (sprite, location) {
-    tiles.setCurrentTilemap(levels._pickRandom())
+    tiles.setCurrentTilemap(levels.shift())
 })
 controller.player1.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
     characterAnimations.loopFrames(
@@ -643,7 +643,7 @@ scene.onHitWall(SpriteKind.boy, function (sprite, location) {
     }
 })
 scene.onOverlapTile(SpriteKind.boy, sprites.dungeon.collectibleInsignia, function (sprite, location) {
-    tiles.setCurrentTilemap(levels._pickRandom())
+    tiles.setCurrentTilemap(levels.shift())
 })
 controller.player1.onButtonEvent(ControllerButton.Left, ControllerButtonEvent.Pressed, function () {
     characterAnimations.loopFrames(
@@ -659,7 +659,7 @@ let jump = 0
 let levels: tiles.TileMapData[] = []
 scene.setBackgroundColor(13)
 tiles.setCurrentTilemap(tilemap`Tutorial`)
-levels = [tilemap`Dark Level`, tilemap`level6`]
+levels = [tilemap`Dark Level`, tilemap`level6`, tilemap`level10`]
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`myImage1`, SpriteKind.boy))
 tiles.placeOnTile(mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two)), tiles.getTileLocation(2, 32))
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.One), sprites.create(assets.image`myImage0`, SpriteKind.girl))
@@ -748,4 +748,9 @@ forever(function () {
     500,
     characterAnimations.rule(Predicate.NotMoving)
     )
+})
+forever(function () {
+    if (levels.length == 0) {
+        game.gameOver(true)
+    }
 })
