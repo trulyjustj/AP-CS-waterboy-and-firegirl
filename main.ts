@@ -51,6 +51,8 @@ function plate (bool: boolean, sprite: Sprite) {
         tiles.setTileAt(tiles.getTileLocation(23, 6), sprites.dungeon.collectibleInsignia)
         tiles.setTileAt(tiles.getTileLocation(22, 7), sprites.dungeon.collectibleInsignia)
         tiles.setTileAt(tiles.getTileLocation(23, 7), sprites.dungeon.collectibleInsignia)
+        girlready = 0
+        girlready = 0
     }
 }
 scene.onOverlapTile(SpriteKind.girl, sprites.dungeon.hazardWater, function (sprite, location) {
@@ -672,7 +674,7 @@ let girlready = 0
 let boyready = 0
 let jump = 0
 let levels: tiles.TileMapData[] = []
-scene.setBackgroundColor(13)
+scene.setBackgroundColor(12)
 tiles.setCurrentTilemap(tilemap`Tutorial`)
 levels = [tilemap`Dark Level`, tilemap`level6`, tilemap`level10`]
 mp.setPlayerSprite(mp.playerSelector(mp.PlayerNumber.Two), sprites.create(assets.image`myImage1`, SpriteKind.boy))
