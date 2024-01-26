@@ -694,6 +694,11 @@ namespace userconfig {
 game.splash("Use A.W.D To Move Firegirl")
 game.splash("Use J.I.L To Move Waterboy")
 forever(function () {
+    if (levels.length == 0) {
+        game.gameOver(true)
+    }
+})
+forever(function () {
     characterAnimations.loopFrames(
     mp.getPlayerSprite(mp.playerSelector(mp.PlayerNumber.One)),
     [img`
@@ -838,9 +843,4 @@ forever(function () {
     500,
     characterAnimations.rule(Predicate.NotMoving)
     )
-})
-forever(function () {
-    if (levels.length == 0) {
-        game.gameOver(true)
-    }
 })
