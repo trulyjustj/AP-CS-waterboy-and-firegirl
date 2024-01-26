@@ -18,7 +18,6 @@ scene.onOverlapTile(SpriteKind.girl, assets.tile`myTile2`, function (sprite, loc
 })
 scene.onOverlapTile(SpriteKind.boy, assets.tile`myTile0`, function (sprite, location) {
     boyready = 1
-    plate(true, sprite)
 })
 scene.onOverlapTile(SpriteKind.girl, assets.tile`myTile1`, function (sprite, location) {
     tiles.setTileAt(tiles.getTileLocation(1, 26), assets.tile`transparency16`)
@@ -53,6 +52,10 @@ function plate (bool: boolean, sprite: Sprite) {
         tiles.setTileAt(tiles.getTileLocation(23, 7), sprites.dungeon.collectibleInsignia)
         girlready = 0
         girlready = 0
+    } else {
+        for (let index = 0; index < 4; index++) {
+        	
+        }
     }
 }
 scene.onOverlapTile(SpriteKind.girl, sprites.dungeon.hazardWater, function (sprite, location) {
@@ -68,9 +71,6 @@ controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pres
 scene.onHitWall(SpriteKind.girl, function (sprite, location) {
     if (!(sprite.isHittingTile(CollisionDirection.Top))) {
         jump = 0
-    }
-    if (sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Left)) {
-        sprite.vy = 0
     }
 })
 controller.player2.onButtonEvent(ControllerButton.Right, ControllerButtonEvent.Pressed, function () {
@@ -655,9 +655,6 @@ scene.onHitWall(SpriteKind.boy, function (sprite, location) {
     if (!(sprite.isHittingTile(CollisionDirection.Top))) {
         jump = 0
     }
-    if (sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Left)) {
-        sprite.vy = 0
-    }
 })
 scene.onOverlapTile(SpriteKind.boy, sprites.dungeon.collectibleInsignia, function (sprite, location) {
     tiles.setCurrentTilemap(levels.shift())
@@ -694,9 +691,7 @@ namespace userconfig {
 game.splash("Use A.W.D To Move Firegirl")
 game.splash("Use J.I.L To Move Waterboy")
 forever(function () {
-    if (levels.length == 0) {
-        game.gameOver(true)
-    }
+    plate(false && false, sprite)
 })
 forever(function () {
     characterAnimations.loopFrames(
@@ -843,4 +838,9 @@ forever(function () {
     500,
     characterAnimations.rule(Predicate.NotMoving)
     )
+})
+forever(function () {
+    if (levels.length == 0) {
+        game.gameOver(true)
+    }
 })
